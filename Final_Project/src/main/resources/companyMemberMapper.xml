@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team1.boxfix.companymember.CompanyMemberMapper">
+	<insert id="companyJoin" parameterType="com.team1.boxfix.companymember.CompanyMember">
+		insert into boxfix_company_member values (#{c_id}, #{c_pw}, #{c_name}, #{c_mail}, #{c_phone}, #{c_topname}, #{c_comnumber})
+	</insert>
+	
+	<select id="getCompanyMemberById" resultType="com.team1.boxfix.companymember.CompanyMember">
+		select * from boxfix_company_member where c_id = #{c_id}
+	</select>
+	
+	<delete id="companyBye" parameterType="com.team1.boxfix.companymember.CompanyMember">
+		delete boxfix_company_member where c_id = #{c_id}	
+	</delete>
+	
+	<update id="companyUpdate" parameterType="com.team1.boxfix.companymember.CompanyMember">
+		update boxfix_company_member set c_pw = #{c_pw}, c_name = #{c_name}, c_mail = #{c_mail}, c_phone = #{c_phone}, c_topname = #{c_topname}  where c_id = #{c_id}
+	</update>
+	
+</mapper>

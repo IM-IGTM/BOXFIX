@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team1.boxfix.validcheck.ValidCheckMapper">
+	<select id="checkId" parameterType="String" resultType="int">
+		select count(*) from boxfix_member where b_id = #{b_id}	
+	</select>
+	
+	<select id="companyCheckId" parameterType="String" resultType="int">
+		select count(*) from boxfix_company_member where c_id = #{c_id}	
+	</select>
+</mapper>

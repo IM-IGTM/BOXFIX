@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team1.boxfix.reservation.ReservationMapper">
+
+<insert id ="recInfor" parameterType="com.team1.boxfix.reservation.ReceiverInformation">
+insert into Receiver_Information values(Receiver_Information_seq.nextval, #{receiver_name}, #{receiver_phone}, #{receiver_addr})
+</insert>
+
+<insert id="resRegister" parameterType="com.team1.boxfix.reservation.ReservationProduct">
+insert into Reservation_Product values(Reservation_Product_seq.nextval, #{product_name}, #{product_price}, #{product_volume1}, #{product_volume2}, #{product_uniqueness}, #{register_date})
+</insert>
+
+<select id="getReceiverInformation" resultType="com.team1.boxfix.reservation.ReceiverInformation">
+select * from Receiver_Information where receiver_no = #{receiver_no }
+</select>
+
+<select id="getReservationProduct" resultType="com.team1.boxfix.reservation.ReservationProduct">
+select * from Reservation_Product where product_no = #{product_no }
+</select>
+</mapper>

@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'Iro';
+	src: url(../font/IropkeBatangM.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Inter';
+	src: url(../font/INTERPARKGOTHICBOLD.TTF) format('truetype');
+}
+
+body {
+font-family: 'Inter';
+	text-align: center;
+	background-color: white;
+}
+
+table {
+	font-family: 'Inter';
+	margin: 1% auto 1% auto;
+}
+
+#h2 {
+	font-family: 'Iro';
+	color: white;
+	height: 35px;
+	border-radius: 5px;
+	border: none;
+	background-color: #fe8d7f;
+	font-weight: bold;
+	width:300px;
+	margin: 3% auto 3% auto;
+	padding: 5px;
+}

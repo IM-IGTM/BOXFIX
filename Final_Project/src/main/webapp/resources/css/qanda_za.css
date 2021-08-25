@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'Inter';
+	src: url(../font/INTERPARKGOTHICBOLD.TTF) format('truetype');
+}
+
+@font-face {
+	font-family: 'Iro';
+	src: url(../font/IropkeBatangM.ttf) format('truetype');
+}
+
+body {
+	font-family: Inter;
+}
+
+#writeQ {
+	font-family: Inter;
+	color: white;
+	width: 100px;
+	border-radius: 5px;
+	/* padding: 6px; */
+	border: none;
+	padding: 7px;
+	background-color: #fe8d7f;
+	margin: auto;
+}
+
+#tbl_review3 {
+	margin: auto;
+	padding: 15px;
+	width: 100%;
+	text-decoration: none;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+#allQnA {
+	margin: auto;
+	padding: 20px;
+	width: 500px;
+	height: 300px;
+}
+th{
+	border-bottom: 2px solid #999;
+	padding: 10px;
+	margin: auto;
+}
+.ReQnA{
+	color:#999;
+	font-size: 13px;
+}

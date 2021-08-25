@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team1.boxfix.member.MemberMapper">
+
+<insert id="join" parameterType="com.team1.boxfix.member.Member">
+	insert into boxfix_member values (#{b_id}, #{b_pw}, #{b_name}, #{b_birth}, #{b_gender}, #{b_mail}, #{b_addr}, #{b_phone})
+</insert>
+
+<select id="getMemberById" resultType="com.team1.boxfix.member.Member">
+	select * from boxfix_member where b_id = #{b_id}
+</select>
+
+<delete id="bye" parameterType="com.team1.boxfix.member.Member">
+	delete boxfix_member where b_id = #{b_id}
+</delete>
+
+<update id="update" parameterType="com.team1.boxfix.member.Member">
+	update boxfix_member set b_pw = #{b_pw}, b_name = #{b_name}, b_mail = #{b_mail}, b_addr = #{b_addr}, b_phone = #{b_phone} where b_id = #{b_id}
+</update>
+
+<select id="findID" resultType="com.team1.boxfix.member.Member">
+	select * from boxfix_member where b_name = #{b_name} and b_phone = #{b_phone}
+</select>
+
+<select id="findPW" resultType="com.team1.boxfix.member.Member">
+	select * from boxfix_member where b_id = #{b_id} and b_name = #{b_name} and b_phone = #{b_phone}
+</select>
+
+<select id="changePW" parameterType="com.team1.boxfix.member.Member">
+	update boxfix_member set b_pw = #{b_pw} 
+</select>
+
+</mapper>

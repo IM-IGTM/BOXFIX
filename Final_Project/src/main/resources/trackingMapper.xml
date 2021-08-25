@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team1.boxfix.tracking.TrackingMapper">
+	<insert id="regshop"
+		parameterType="com.team1.boxfix.tracking.Shop_person">
+		insert into shop_person
+		values(shop_person_seq.nextval,#{sp_category},#{sp_name})
+
+	</insert>
+	<select id="regchecklist" resultType="com.team1.boxfix.tracking.Shop_person">
+		select * from shop_person
+	</select>
+	
+	<insert id="regGetAll" parameterType="com.team1.boxfix.tracking.Shop_person">
+		insert into shop_office
+		values(shop_office_seq.nextval,#{sp_category},#{sp_name})
+
+	</insert>
+
+	 <select id="shopList" resultType="com.team1.boxfix.tracking.Shop_office">
+		select * from shop_office
+	</select> 
+
+
+	
+	<select id="approvedList" resultType="com.team1.boxfix.tracking.History">
+		select * from history23 order by h_date desc
+	</select>
+	
+	<delete id="regdel" parameterType="com.team1.boxfix.tracking.Shop_person">
+		delete shop_person where sp_no=#{sp_no}
+	</delete>
+	
+	
+	
+	<select id="searchProduct" resultType="com.team1.boxfix.tracking.History" parameterType="com.team1.boxfix.tracking.History">
+		select * from history23 where h_productName like '%' || #{h_productName} || '%' order by h_date desc
+	</select>
+
+	<select id="searchShop" resultType="com.team1.boxfix.tracking.History" parameterType="com.team1.boxfix.tracking.History">
+		select * from history23 where h_shopName like '%' || #{h_shopName} || '%' order by h_date desc
+	</select>
+	
+	
+	
+	
+	<select id="getAllPCount" resultType="java.lang.Integer">
+		select count(*)	from history23, shop_office where sp_name = h_shopName
+	</select>
+	
+	
+<select id="getProducts" parameterType="com.team1.boxfix.tracking.ProductSelector" resultType="com.team1.boxfix.tracking.History">
+	select *
+		from (
+			select rownum as rn, h_shopName, h_productName, h_deliveryCode, h_deliveryNumber, h_date, h_file
+			from(
+				select * from history23
+				where h_productName like '%'||#{search}||'%'
+				order by h_date desc
+
+		)
+		)
+		where rn &gt;= #{start} and rn &lt;= #{end}
+</select>
+	
+	
+<select id="getProducts2" parameterType="com.team1.boxfix.tracking.ProductSelector" resultType="com.team1.boxfix.tracking.History">
+	select *
+		from (
+			select rownum as rn, h_shopName, h_productName, h_deliveryCode, h_deliveryNumber, h_date, h_file
+			from(
+				select * from history23
+				where h_shopName like '%'||#{search}||'%'
+				order by h_date desc
+				)
+		)
+		where rn &gt;= #{start} and rn &lt;= #{end}
+</select>
+	
+	
+	<select id="getSearchPCnt" resultType="int"	parameterType="com.team1.boxfix.tracking.ProductSelector">
+
+		select count(*) from history23 where h_productName like '%'||#{search}||'%' order by h_date desc
+	</select>
+	
+	<select id="getSearchPCnt2" resultType="int"	parameterType="com.team1.boxfix.tracking.ProductSelector">
+
+		select count(*) from history23 where h_shopName like '%' || #{search} || '%' order by h_date desc
+	</select>
+	
+	
+	<select id="sumPriceEight" resultType="int" parameterType="com.team1.boxfix.tracking.History" >
+		SELECT sum(h_productSum) FROM history23 where h_date 
+		between to_date('2021-08-01', 'yyyy-MM-dd') and
+		LAST_DAY(to_date('2021-08-31', 'yyyy-MM-dd'))
+
+	</select>
+	
+	<select id="sumPriceSeven" resultType="int" parameterType="com.team1.boxfix.tracking.History" >
+		SELECT sum(h_productSum) FROM history23 where h_date 
+		between to_date('2021-07-01', 'yyyy-MM-dd') and
+		LAST_DAY(to_date('2021-07-31', 'yyyy-MM-dd'))
+	</select>
+	
+	<select id="sumPriceSix" resultType="int" parameterType="com.team1.boxfix.tracking.History" >
+		SELECT sum(h_productSum) FROM history23 where h_date 
+		between to_date('2021-06-01', 'yyyy-MM-dd') and
+		LAST_DAY(to_date('2021-06-31', 'yyyy-MM-dd'))
+	</select>
+	
+	<select id="sumPriceFive" resultType="int" parameterType="com.team1.boxfix.tracking.History" >
+		SELECT sum(h_productSum) FROM history23 where h_date 
+		between to_date('2021-05-01', 'yyyy-MM-dd') and
+		LAST_DAY(to_date('2021-05-31', 'yyyy-MM-dd'))
+	</select>
+	
+
+	<select id="productsEight" resultType="com.team1.boxfix.tracking.History" parameterType="com.team1.boxfix.tracking.ProductSelector">
+		select *
+		from (
+			select rownum as rn, h_shopName, h_productName, h_productSum, h_date, h_file
+			from(
+				select * from history23
+				where h_date
+				between to_date('2021-08-01', 'yyyy-MM-dd') and
+				LAST_DAY(to_date('2021-08-31', 'yyyy-MM-dd'))
+				order by h_date desc
+				)
+		)
+		where rn &gt;= #{start} and rn &lt;= #{end}
+	</select>
+	
+	<select id="productsEightCnt" resultType="int" parameterType="com.team1.boxfix.tracking.History" >
+		SELECT count(*) FROM history23 where h_date 
+		between to_date('2021-08-01', 'yyyy-MM-dd') and
+		LAST_DAY(to_date('2021-08-31', 'yyyy-MM-dd'))
+	</select> 
+
+	<select id="productsSeven" resultType="com.team1.boxfix.tracking.History" parameterType="com.team1.boxfix.tracking.ProductSelector">
+		select *
+		from (
+			select rownum as rn, h_shopName, h_productName, h_productSum, h_date, h_file
+			from(
+				select * from history23
+				where h_date
+				between to_date('2021-07-01', 'yyyy-MM-dd') and
+				LAST_DAY(to_date('2021-07-31', 'yyyy-MM-dd'))
+				order by h_date desc
+				)
+		)
+		where rn &gt;= #{start} and rn &lt;= #{end}
+	</select>
+	<select id="productsSevenCnt" resultType="int" parameterType="com.team1.boxfix.tracking.History" >
+		SELECT count(*) FROM history23 where h_date 
+		between to_date('2021-07-01', 'yyyy-MM-dd') and
+		LAST_DAY(to_date('2021-07-31', 'yyyy-MM-dd'))
+	</select>
+	<select id="productsFive" resultType="com.team1.boxfix.tracking.History" parameterType="com.team1.boxfix.tracking.History" >
+		SELECT * FROM history23 where h_date 
+		between to_date('2021-05-01', 'yyyy-MM-dd') and
+		LAST_DAY(to_date('2021-05-31', 'yyyy-MM-dd'))
+	</select>
+	
+	<select id="productsFiveCnt" resultType="int" parameterType="com.team1.boxfix.tracking.History" >
+		SELECT count(*) FROM history23 where h_date 
+		between to_date('2021-05-01', 'yyyy-MM-dd') and
+		LAST_DAY(to_date('2021-05-31', 'yyyy-MM-dd'))
+	</select>
+	
+	
+	
+	
+	<select id="rankEight" resultType="com.team1.boxfix.tracking.History" parameterType="com.team1.boxfix.tracking.History">
+select sum(h_productsum) as h_productsum, h_shopname
+from HISTORY23
+where h_date 
+between to_date('2021-08-01', 'yyyy-MM-dd') and
+LAST_DAY(to_date('2021-08-31', 'yyyy-MM-dd'))
+group by h_shopName
+		
+	</select>
+	<select id="rankSeven" resultType="com.team1.boxfix.tracking.History" parameterType="com.team1.boxfix.tracking.History">
+select sum(h_productsum) as h_productsum, h_shopname
+from HISTORY23
+where h_date 
+between to_date('2021-07-01', 'yyyy-MM-dd') and
+LAST_DAY(to_date('2021-07-31', 'yyyy-MM-dd'))
+group by h_shopName
+		
+	</select>
+	<select id="rankFive" resultType="com.team1.boxfix.tracking.History" parameterType="com.team1.boxfix.tracking.History">
+select sum(h_productsum) as h_productsum, h_shopname
+from HISTORY23
+where h_date 
+between to_date('2021-05-01', 'yyyy-MM-dd') and
+LAST_DAY(to_date('2021-05-31', 'yyyy-MM-dd'))
+group by h_shopName
+		
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper>

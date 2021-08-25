@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'Inter';
+	src: url(../font/INTERPARKGOTHICBOLD.TTF) format('truetype');
+}
+#sessionMember{
+    width: 70px;
+    padding: 5px;
+    font-family: 'Inter';
+}
+button {
+	font-family: 'Inter';
+	color: white;
+	width: 70px;
+	border-radius: 5px;
+	padding: 6px;
+	border: none;
+	background-color: #fe8d7f;
+	margin: 10px 10px 10px 0px;
+}
+td{
+	padding: 4px;
+}

@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'Inter';
+	src: url(../font/INTERPARKGOTHICBOLD.TTF) format('truetype');
+}
+
+body {
+	font-family: 'Inter';
+	font-weight: 600;
+	text-align: center;
+}
+
+#memberinfo {
+	width: 1000px;
+	height: 50px;
+	margin: auto;
+	border: 4px solid #999;
+	border-radius: 30px;
+}
+
+b {
+	color: white;
+	background-color: #9acedf;
+	padding: 10px;
+	margin: auto;
+	border-radius:10px;
+}
+
+input {
+	font-family: Inter;
+	width: 200px;
+	height: 24px;
+	border: 1px solid #5183b8;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+
+select {
+	font-family: Inter;
+	margin-top: 1px;
+	background-color: #999;
+	border: none;
+	outline: none;
+	color: #fff;
+	width: 110px;
+	height: 28px;
+	border-radius: 5px;
+}
+
+.memInfo{
+	padding: 23px;
+}
+
+#CompanyInfo{
+	width: 800px;
+	height: 50px;
+	margin: auto;
+	border: 4px solid #999;
+	border-radius: 30px;
+}

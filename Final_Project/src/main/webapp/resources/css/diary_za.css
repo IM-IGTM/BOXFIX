@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'Iro';
+	src: url(../font/IropkeBatangM.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Inter';
+	src: url(../font/INTERPARKGOTHICBOLD.TTF) format('truetype');
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:focus {
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	text-decoration: none;
+}
+
+body {
+	font-family: 'Inter';
+	text-align: center;
+	background-color: white;
+}
+
+select {
+	font-family: 'Inter';
+	margin-top: 1px;
+	background-color: #999;
+	border: none;
+	outline: none;
+	color: #fff;
+	width: 100px;
+	height: 25px;
+	border-radius: 5px;
+}
+
+table {
+	font-family: 'Iro';
+	margin: 1% auto 1% auto;
+}
+
+#diary_shop {
+	border: 1px solid #9acedf;
+	padding: 10px;
+}
+
+#hsBtn {
+	font-family: 'Inter';
+	color: white;
+	width: 100px;
+	height: 30px;
+	border-radius: 5px;
+	border: none;
+	background-color: #fe8d7f;
+}
+
+#chart_div {
+	margin: auto;
+	width: 800px;
+}
+
+#shop123 {
+	margin: auto;
+	margin-top: 10px;
+	width: 800px;
+	border: 2px solid #5183b8;
+}
+
+span {
+	font-family: 'Inter';
+	color: white;
+	background-color: #9acedf;
+	padding: 10px 10px 0px 10px;
+	text-align: center;
+	font-size: 30px;
+}
+
+#itibang {
+	font-family: 'Inter';
+	margin: auto;
+	margin-top: 10px;
+	width: 800px;
+	border: 5px double #5183b8;
+	border-radius: 15px;
+}
+
+#r_pageTd {
+	color: #000;
+	text-decoration: none;
+}

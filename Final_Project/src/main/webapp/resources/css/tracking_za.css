@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'Inter';
+	src: url(../font/INTERPARKGOTHICBOLD.TTF) format('truetype');
+}
+@font-face {
+	font-family: 'Iro';
+	src: url(../font/IropkeBatangM.ttf) format('truetype');
+}
+
+body {
+	font-family: Inter;
+}
+
+h1 {
+	background-color: #5183b8;
+	color: white;
+	padding: 10px;
+}
+
+button {
+	font-family: Inter;
+	color: white;
+	width: 70px;
+	border-radius: 5px;
+	padding: 6px;
+	border: none;
+	background-color: #fe8d7f;
+	margin: 10px 10px 10px 0px;
+}
+
+input {
+	font-family: Inter;
+	width: 200px;
+	height: 24px;
+	border: 1px solid #5183b8;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+
+select {
+	font-family: Inter;
+	margin-top: 1px;
+	background-color: #999;
+	border: none;
+	outline: none;
+	color: #fff;
+	width: 110px;
+	height: 30px;
+	border-radius: 5px;
+}
+#shopReg1{
+	text-align: center;
+	padding: 5%;
+	margin: 10px 10px 10px 10ox;
+}
+.shopReg{
+	text-align:center;
+	width: 93%;
+	max-width: max-content;
+}
+
+#search{
+	width: 400px;
+	padding:10px;
+	margin:auto;
+	border:none;
+}
+td{
+	padding: 4px;
+}
+a {
+	text-decoration: none;
+	font-style: initial;
+	font-weight: bold;
+	color:black;
+
+}
+#tbl_review3{
+	margin: auto;
+	padding: inherit;
+	width:100%;
+}
+form{
+	font-family:'Iro';
+	margin:auto;
+	margin-top: 10px;
+	width:800px;
+	border: 2px solid #5183b8;
+}

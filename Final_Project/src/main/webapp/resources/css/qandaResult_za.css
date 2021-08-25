@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'Inter';
+	src: url(../font/INTERPARKGOTHICBOLD.TTF) format('truetype');
+}
+
+@font-face {
+	font-family: 'Iro';
+	src: url(../font/IropkeBatangM.ttf) format('truetype');
+}
+
+body {
+	font-family: Inter;
+}
+#Qresult{
+    color:white;
+    background-color: #9acedf;
+    width: 250px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+.atag{
+	margin:10px;
+	text-align: center;
+}
+a:visited {color:black}

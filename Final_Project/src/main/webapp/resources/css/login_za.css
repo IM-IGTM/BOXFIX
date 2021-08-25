@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'Inter';
+	src: url(../font/INTERPARKGOTHICBOLD.TTF) format('truetype');
+}
+
+body {
+	font-family: 'Inter';
+	font-weight: 600;
+	margin: 10%;
+	text-align: center;
+	background-image: url("../img/back2.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.loginbox {
+	font-weight: 600;
+	border-radius: 30px;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50;
+	border-right: 5px;
+	padding: 20px;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+.loginApi {
+	font-weight: 600;
+	border-radius: 30px;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50;
+	border-right: 5px;
+	padding: 20px;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+button {
+	font-weight: bold;
+	font-family: 'Inter';
+	color: white;
+	max-width: 150px;
+	border-radius: 4px;
+	padding: 10px 20px;
+	width: 100%;
+	border-radius: 5px;
+	padding: 10px;
+	border: none;
+}
+
+#kakao {
+	background-color: #ffdf57;
+}
+
+#naverIdLogin_loginButton {
+	background-color: #73df57;
+}
+
+input {
+	font-weight: 600;
+	font-family: 'Inter';
+	inline-block: 1px;
+	padding: 1%;
+	border-color: #ccdeec;
+}
+
+#loginbut {
+	background-color: #9acedf;
+}
+
+#joinbut {
+	background-color: #FFBBB2;
+}
+
+.idpw {
+	padding: 25px 10px 10px 10px;
+}
+
+td {
+	width: 150px;
+	margin: 10px;
+	padding: 10px;
+	height: 10px;
+}
+
+#findId {
+	background-color: #9acedf;
+}
+
+#findPw {
+	background-color: #FFBBB2;
+}
+
+#naverIdLogin_loginButton, #kakao {
+	margin: 10px 28px 15px 28px;
+}

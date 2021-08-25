@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team1.boxfix.qanda.QandAMapper">
+
+<insert id="writeQandA" parameterType="com.team1.boxfix.qanda.QANDA">
+insert into QandA values(QandA_seq.nextval, #{q_title}, #{q_contents}, sysdate, #{q_writer})
+</insert>
+
+
+<select id="showAllQandA" resultType="com.team1.boxfix.qanda.QANDA">
+select * from QandA
+</select>
+
+<select id="showQandA" resultType="com.team1.boxfix.qanda.QANDA">
+select * from QandA where q_no = #{q_no}
+</select>
+<select id="showQandR" resultType="com.team1.boxfix.qanda.QANDAR">
+select * from QandA_reply where qar_q_no = #{qar_q_no}
+</select>
+
+<update id="updateQandA" parameterType="com.team1.boxfix.qanda.QANDA">
+update QandA set q_title = #{q_title}, q_contents = #{q_contents}, q_date = sysdate, q_writer=#{q_writer} where q_no=#{q_no}
+</update>
+
+<delete id="deleteQandA" parameterType="com.team1.boxfix.qanda.QANDA">
+delete from QandA where q_no=#{q_no}
+</delete>
+<select id="getQandA" parameterType="com.team1.boxfix.qanda.QandAPage" resultType="com.team1.boxfix.qanda.QANDA">
+	select *
+		from (
+			select rownum as rn, q_title, q_contents, q_date, q_writer, q_no
+			from(
+				select * from QandA
+				order by q_date desc
+		)
+		)
+		where rn &gt;= #{start} and rn &lt;= #{end}
+</select>
+
+<select id="getPagingQandA" resultType="int">
+select count(*) from QandA
+</select>
+<insert id="writeQandAReply" parameterType="com.team1.boxfix.qanda.QANDAR" >
+insert into QandA_reply values(QandA_reply_seq.nextval, #{qar_q_no}, #{qar_q_title}, #{qar_q_writer}, #{qar_q_comment}, sysdate)
+</insert>
+
+<select id="getAllRly" resultType="com.team1.boxfix.qanda.QANDAR" parameterType="com.team1.boxfix.qanda.QANDA">
+select * from QandA_reply
+where qar_q_no = #{q_no}
+order by qar_date
+</select>
+
+<delete id="deleteQandAR" parameterType="com.team1.boxfix.qanda.QANDAR">
+delete from QandA_reply where qar_q_no=#{qar_q_no}
+</delete>
+
+</mapper>
